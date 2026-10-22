@@ -1,0 +1,869 @@
+{
+  "info": {
+    "_postman_id": "5f3e0ac6-a584-49e4-baa0-bea194f735dd",
+    "name": "\"Курсовая работа API\"",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54485970",
+    "_collection_link": "https://go.postman.co/collection/54485970-5f3e0ac6-a584-49e4-baa0-bea194f735dd?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "\"Позитивные тест-кейсы\"",
+      "item": [
+        {
+          "name": "\"ТС-01 Создание события на 25 минут\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Короткая встреча\",\r\n    \"startAt\": \"2026-06-25T12:00:00+03:00\",\r\n    \"endAt\": \"2026-06-25T12:25:00+03:00\",\r\n    \"backgroundColor\": \"#E8F5E9\",\r\n    \"color\": \"#2E7D32\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-02 Создание события на три часа\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"Встреча с коллегами\", \r\n\"startAt\": \"2026-06-26T11:00:00+03:00\", \r\n\"endAt\": \"2026-06-26T14:00:00+03:00\", \r\n\"backgroundColor\": \"#FAC641\", \r\n\"color\": \"#FFF7C7\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-03 Событие с 1 символом\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"А\", \r\n\"startAt\": \"2026-06-27T10:00:00+03:00\", \"endAt\": \"2026-06-27T10:30:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-04 Событие с 40 символами\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"КВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНК\", \r\n\"startAt\": \"2026-06-27T12:00:00+03:00\", \"endAt\": \"2026-06-27T12:30:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-05 Событие с описанием\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Встреча с командой\", \"startAt\": \"2026-06-27T14:00:00+03:00\", \r\n\"endAt\": \"2026-06-27T15:00:00+03:00\", \"backgroundColor\": \"#E8F5E9\", \r\n\"color\": \"#2E7D32\", \r\n\"description\": \"Обсуждение итогов недели и планов на следующую\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-06 Описание содержит ссылку\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Встреча\", \r\n\"startAt\": \"2026-06-27T14:00:00+03:00\", \r\n\"endAt\": \"2026-06-27T15:00:00+03:00\", \"backgroundColor\": \"#E8F5E9\", \"color\": \"#2E7D32\", \r\n\"description\": \"Подробнее: https://example.com/meeting\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-07 Изменение названия события\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 102212324,\r\n    \"oldStartAt\": \"2026-06-25T09:00:00+00:00\",\r\n    \"title\": \"Новое название\",\r\n    \"startAt\": \"2026-06-25T09:00:00+00:00\",\r\n    \"endAt\": \"2026-06-25T09:25:00+00:00\",\r\n    \"backgroundColor\": \"#E8F5E9\",\r\n    \"color\": \"#2E7D32\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/updatePersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "updatePersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-08 Изменение времени события\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 102212324,\r\n    \"oldStartAt\": \"2026-06-25T09:00:00+00:00\",\r\n    \"title\": \"Новое название\",\r\n    \"startAt\": \"2026-06-25T10:00:00+00:00\",\r\n    \"endAt\": \"2026-06-25T10:25:00+00:00\",\r\n    \"backgroundColor\": \"#E8F5E9\",\r\n    \"color\": \"#2E7D32\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/updatePersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "updatePersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-09 Создание события на прошедшую дату\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Прошедшее событие\", \r\n\"startAt\": \"2026-06-25T10:00:00+03:00\", \r\n\"endAt\": \"2026-06-25T10:30:00+03:00\", \r\n\"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-10 Удаление события\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 102212219,\r\n    \"startAt\": \"2026-07-02T13:00:00+00:00\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/removePersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "removePersonal"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "\"Негативные тест-кейсы\"",
+      "item": [
+        {
+          "name": "\"ТС-11 Создание события с пустым названием\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"\", \r\n\"startAt\": \"2026-06-28T10:00:00+03:00\", \"endAt\": \"2026-06-28T10:30:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-12 Создание события с названием длиннее 40 символов\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"КВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНКВНК1\", \r\n\"startAt\": \"2026-06-28T10:00:00+03:00\", \"endAt\": \"2026-06-28T10:30:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-13 Создание события длительностью менее 5 минут\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Короткое событие\", \"startAt\": \"2026-06-28T10:00:00+03:00\", \r\n\"endAt\": \"2026-06-28T10:02:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \r\n\"color\": \"#FFFFFF\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-14 Создание события с недопустимым цветом\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Событие с плохим цветом\", \"startAt\": \"2026-06-28T10:00:00+03:00\", \"endAt\": \"2026-06-28T10:30:00+03:00\", \"backgroundColor\": \"#123456\", \r\n\"color\": \"#654321\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "\"ТС-15 Создание события с недопустимыми символами\"",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token_global={{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Событие с эмодзи\", \r\n\"startAt\": \"2026-06-28T10:00:00+03:00\", \"endAt\": \"2026-06-28T10:30:00+03:00\", \"backgroundColor\": \"#BDBDBD\", \"color\": \"#FFFFFF\", \r\n\"description\": \"Описание с эмодзи 😊🎉 и спецсимволами: @#$%^&*()\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/v2/schedule/createPersonal",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "v2",
+                "schedule",
+                "createPersonal"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "https://api-teachers.skyeng.ru"
+    },
+    {
+      "key": "auth_token",
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySWQiOjE0NTk2OTMzLCJpZGVudGl0eSI6InRlc3QudHN0MzE3QHNreWVuZy5ydSIsImlkZW50aXR5TG9naW4iOm51bGwsImlkZW50aXR5RW1haWwiOiJ0ZXN0LnRzdDMxN0Bza3llbmcucnUiLCJpZGVudGl0eVBob25lIjoiKzc5OTk1NTUzMzEwIiwibmFtZSI6Ilx1MDQxOFx1MDQzM1x1MDQzZVx1MDQ0MFx1MDQ0YyIsInN1cm5hbWUiOiJcdTA0MTJcdTA0MzhcdTA0NDBcdTA0NDdcdTA0MzhcdTA0M2EiLCJlbWFpbCI6InRlc3QudHN0MzE3QHNreWVuZy5ydSIsInVpTGFuZ3VhZ2UiOiJydSIsImxvY2FsZSI6InJ1Iiwic2VydmljZUxvY2FsZSI6bnVsbCwidWFzIjozMCwiand0VHlwZSI6MSwianRpIjoiVmxFSzd2VVBaNVhNWGpTUzVVMG9kZmRaNmRaa25kQnIiLCJicmFuZCI6bnVsbCwiZXhwIjoxNzgyOTAzMjgzLCJhdmF0YXJVcmwiOiJodHRwczpcL1wvY2RuLWF1dGgtYXZhdGFycy5za3llbmcucnVcL3NreWNvbnZlcnRcL3Vuc2FmZVwvNTEyeDUxMlwvaHR0cHMlM0ElMkYlMkZhdmF0YXItY29udmVydGVyLnNreWVuZy5ydSUyRnB1YmxpYy1hcGklMkZ2MSUyRmNvbnZlcnQlM0ZhdmF0YXIlM0RodHRwcyUyNTNBJTI1MkYlMjUyRmNkbi1hdXRoLWF2YXRhcnMuc2t5ZW5nLnJ1JTI1MkYxNDU5NjkzMyUyNTJGOThmNmJlYjUtZjA3Yi00MWViLThiYzItNDU3MTQwYTc0ODgzIiwiYmlydGhkYXkiOiIxOTcwLTEyLTMxIiwiYUlzU3Ryb25nIjp0cnVlLCJhVHlwZSI6IlVTRVJOQU1FX1BBU1NXT1JEIiwiYVRpbWUiOjE3ODI4MTY4ODEsInJvbGVzIjpbIlJPTEVfVEVBQ0hFUl9DQU5ESURBVEUiLCJST0xFX1RFQUNIRVJfQ0FORElEQVRFX0JBU0VfQUNDRVNTIiwiUk9MRV9UUk1fVVBMT0FEX0ZJTEUiLCJST0xFX1RUQ19VU0FHRSIsIlJPTEVfVklNQk9YX1RFQUNIRVJfVVNBR0UiLCJST0xFX1RFQUNIRVIiLCJST0xFX0NSTTJfVEVBQ0hFUl9BQ0NFU1MiLCJST0xFX1RFQUNIRVJTX0NBQklORVRfQkFTRV9BQ0NFU1MiLCJST0xFX01BVEhfVEVBQ0hFUiIsIlJPTEVfTUFUSF9DT05URU5UX1RIRU1FX1ZJRVciXX0.1w8yNq1KzU-0OXDFOQiamT7ncT2DUTaSQWaWjUXxUZPuhm8kGx-Zt3zalMRaNn0S0SMjEIb45QfZKLExe9S59AcxFBpPG99vso6mh5pMJ5QxGAIcVSBMEscPta6SRlmNSm5LYSrwEGtc8m-XEE3SxDsNBh8okG3vjVsIwlLOnCkFFvcX_-RkVj-DlIxNSb7TzQj-XDxK78wS4yCUXg-xw61MXuQiZ1Jm6P0I5Ks3HIL39YQu2yWY4Lm7wneojBTO-y2XAacDhn_uMQLLJbAOg4LU_G2smYZrz3pbptVUrAJMYcNg_HnkYhBMUGU1yw5e5llEVIe0ChErOSL1Xy7YY3_Gr_AP3d4yFoRGkF5EhzTbqDhb3PIo84EvCXYKPqvi_amVi770hxeVFHbah78VtxBG5f0iYhVFFilC_6FrbXT11vphdaFIelfzxHyEMwQohccGSEM2Xwdhk4Jfs_ld_MA06afsaD1GjKVIDQhym4l8aalUw_lNHK1NNoOOSNoI8eGzgC8iozzaeMJfX1MRWmFlHoQ2d6FSuvivPJNRrPDj_urvbnveB766peb8B-ByR2LkF6Aj9xDsq0eZPfhY8bdNRItfSipUgF0c7uBBWvb-OWa6Ysd1ZR8frD5xCuLI4DzD1HIlZ-9fDM_TGb6bXy_36IduT7UX1IZ_5o8pjrk"
+    },
+    {
+      "key": "eventId",
+      "value": ""
+    }
+  ]
+}

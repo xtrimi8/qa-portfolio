@@ -1,0 +1,539 @@
+{
+  "info": {
+    "_postman_id": "1e827f87-db5b-47fe-99c2-d68c65657dbb",
+    "name": "\"Коллекция Yougile\"",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54485970",
+    "_collection_link": "https://go.postman.co/collection/54485970-1e827f87-db5b-47fe-99c2-d68c65657dbb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "\"ID компании\"",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"login\": \"xtrimi@rambler.ru\",\r\n  \"password\": \"008f008f\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/auth/companies",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "auth",
+            "companies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"API ключ\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 2xx\", function () {\r",
+              "    pm.response.to.be.success;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"login\": \"xtrimi@rambler.ru\",\r\n  \"password\": \"008f008f\",\r\n  \"companyId\": \"f406807a-e95a-449e-bd04-32397166404b\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/auth/keys",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "auth",
+            "keys"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Создание нового проекта\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var key = \"projectId\";\r",
+              "var value = pm.response.json().id;\r",
+              "pm.collectionVariables.set(key, value);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer nf7aWJifXSi0beI3EQ4SGnkk+7FghdTuEtKLw2H+Y3ytYsmtBCufKGMT-PiiEeJS",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Новый проект API\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/projects",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Создание новой доски\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var key = \"boardId\";\r",
+              "var value = pm.response.json().id;\r",
+              "pm.collectionVariables.set(key, value);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer nf7aWJifXSi0beI3EQ4SGnkk+7FghdTuEtKLw2H+Y3ytYsmtBCufKGMT-PiiEeJS",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Моя первая доска\",\r\n  \"projectId\": \"56049ede-3476-41b2-ab9d-0dd846b108a9\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/boards",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "boards"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Создание новой колонки\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var key = \"newColumnId\";\r",
+              "var value = pm.response.json().id;\r",
+              "pm.collectionVariables.set(key, value);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer nf7aWJifXSi0beI3EQ4SGnkk+7FghdTuEtKLw2H+Y3ytYsmtBCufKGMT-PiiEeJS",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Новая колонка\",\r\n  \"color\": 2,\r\n  \"boardId\": \"455bad0f-c15a-4317-aed2-308d097841d7\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/columns",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "columns"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Создание старой колонки\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var key = \"oldColumnId\";\r",
+              "var value = pm.response.json().id;\r",
+              "pm.collectionVariables.set(key, value);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer nf7aWJifXSi0beI3EQ4SGnkk+7FghdTuEtKLw2H+Y3ytYsmtBCufKGMT-PiiEeJS",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Старая колонки\",\r\n  \"color\": 2,\r\n  \"boardId\": \"455bad0f-c15a-4317-aed2-308d097841d7\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ru.yougile.com/api-v2/columns",
+          "protocol": "https",
+          "host": [
+            "ru",
+            "yougile",
+            "com"
+          ],
+          "path": [
+            "api-v2",
+            "columns"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Создание новой задачи\"",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"{{$randomFileName}}\",\r\n  \"columnId\": \"{{newColumnId}}\",\r\n  \"description\": \"{{$randomPhrase}}\",\r\n  \"archived\": false,\r\n  \"completed\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/tasks",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Получение проекта\"",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/projects/{{projectId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Получение доски\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/boards/{{boardId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "boards",
+            "{{boardId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Получение колонки\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/boards/{{boardId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "boards",
+            "{{boardId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Изменить проект\"",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n    \"title\": \"Новое название проекта\"\r\n}   ",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/projects/{{projectId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Изменить доску\"",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Новое название доски\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/boards/{{boardId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "boards",
+            "{{boardId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Изменить новую колонку\"",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Новое название колонки\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/columns/{{newColumnId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "columns",
+            "{{newColumnId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "nf7aWJifXSi0beI3EQ4SGnkk+7FghdTuEtKLw2H+Y3ytYsmtBCufKGMT-PiiEeJS",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "projectId",
+      "value": ""
+    },
+    {
+      "key": "boardId",
+      "value": ""
+    },
+    {
+      "key": "newColumnId",
+      "value": ""
+    },
+    {
+      "key": "baseURL",
+      "value": ""
+    },
+    {
+      "key": "oldColumnId",
+      "value": ""
+    }
+  ]
+}

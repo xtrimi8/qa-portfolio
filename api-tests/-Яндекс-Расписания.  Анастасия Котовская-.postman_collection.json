@@ -1,0 +1,479 @@
+{
+  "info": {
+    "_postman_id": "0eb7ec5e-4478-468a-9804-5d48c3175d22",
+    "name": "\"Яндекс-Расписания.  Анастасия Котовская\"",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54485970",
+    "_collection_link": "https://go.postman.co/collection/54485970-0eb7ec5e-4478-468a-9804-5d48c3175d22?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "\"Расписание рейсов между станциями\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Ответ содержит рейсы\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"segments\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}search/?apikey={{apiKey}}&from=c146&to=c2&format=json",
+          "host": [
+            "{{baseURL}}search"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "from",
+              "value": "c146"
+            },
+            {
+              "key": "to",
+              "value": "c2"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Расписание между станциями (негатив)\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус ошибки 4xx\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}search/?apikey={{apiKey}}&from=c146&to=cxxxxxxx&format=json",
+          "host": [
+            "{{baseURL}}search"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "from",
+              "value": "c146"
+            },
+            {
+              "key": "to",
+              "value": "cxxxxxxx"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Расписание рейсов от станции\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Ответ содержит расписание\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"schedule\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}schedule/?apikey={{apiKey}}&station=s9600213&format=json",
+          "host": [
+            "{{baseURL}}schedule"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "station",
+              "value": "s9600213"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Расписание рейсов от станции (негатив)\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус ошибки 4xx\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}schedule/?apikey={{apiKey}}&station=sxxxxxxx&format=json",
+          "host": [
+            "{{baseURL}}schedule"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "station",
+              "value": "sxxxxxxx"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Маршрут с остановками\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус код 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Ответ содержит маршрут (segments)\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"segments\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}search/?apikey={{apiKey}}&from=c146&to=c2&transfers=true&format=json",
+          "host": [
+            "{{baseURL}}search"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "from",
+              "value": "c146"
+            },
+            {
+              "key": "to",
+              "value": "c2"
+            },
+            {
+              "key": "transfers",
+              "value": "true"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Маршрут с остановками (негативный)\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус ошибки 4xx\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}search/?apikey={{apiKey}}&from=c146&to=cxxxxxxxxx&transfers=true&format=json",
+          "host": [
+            "{{baseURL}}search"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "from",
+              "value": "c146"
+            },
+            {
+              "key": "to",
+              "value": "cxxxxxxxxx"
+            },
+            {
+              "key": "transfers",
+              "value": "true"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Список ближайших станций\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Ответ содержит станции\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"stations\");\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}nearest_stations/?apikey={{apiKey}}&lat=55.751244&lng=37.618423&distance=50&format=json",
+          "host": [
+            "{{baseURL}}nearest_stations"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "lat",
+              "value": "55.751244"
+            },
+            {
+              "key": "lng",
+              "value": "37.618423"
+            },
+            {
+              "key": "distance",
+              "value": "50"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "\"Ближайшие станции (негатив)\"",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус ошибки 4xx\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}nearest_stations/?apikey={{apiKey}}&lat=999.999&lng=999.999&distance=50&format=json",
+          "host": [
+            "{{baseURL}}nearest_stations"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "apikey",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "lat",
+              "value": "999.999"
+            },
+            {
+              "key": "lng",
+              "value": "999.999"
+            },
+            {
+              "key": "distance",
+              "value": "50"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "apiKey",
+      "value": ""
+    },
+    {
+      "key": "baseURL",
+      "value": ""
+    }
+  ]
+}
