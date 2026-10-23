@@ -9,7 +9,7 @@ QA Manual Portfolio – Анастасия Котовская
 - Тестовая документация: тест-кейсы, чек-листы, баг-репорты.
 - SQL: простые запросы (SELECT, WHERE, JOIN, GROUP BY) для проверки данных.
 
-Инструменты: TestIt, Yozhka, Miro, Git, GitHub, DevTools, Postman, SOAP (SoapUI).
+Инструменты: TestIt, Yozhka, Miro, Git, GitHub, DevTools, Postman, SOAP (SoapUI), PostgreSQL.
 
 Структура репозитория:
 - `test-cases/` — тест-кейсы (Smoke, позитивные, негативные).
